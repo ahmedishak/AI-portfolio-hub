@@ -20,7 +20,10 @@ def home():
     with c1:
         st.subheader("Hyphen Matcher")
         st.write("UK route recommendation (advisory): INTO, iO-Sphere, Foundation, or HOLD.")
-        st.link_button("Open Hyphen Matcher", "http://localhost:3000")
+        st.link_button(
+            "Open Hyphen Matcher",
+            "https://hyphen-matcher-app-v2.vercel.app/sign-in?redirect_url=https%3A%2F%2Fhyphen-matcher-app-v2.vercel.app%2F",
+        )
         if st.button("Details", key="hyphen_details"):
             st.switch_page(hyphen)
 
