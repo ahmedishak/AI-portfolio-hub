@@ -1,6 +1,3 @@
-Paste this over `Home.py`:
-
-```python
 import streamlit as st
 
 st.set_page_config(page_title="Ishak — apps", layout="wide")
@@ -51,6 +48,3 @@ pg = st.navigation(
     ]
 )
 pg.run()
-```
-
-Save it, then run `streamlit run Home.py` again.
