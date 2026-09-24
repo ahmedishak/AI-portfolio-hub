@@ -34,8 +34,7 @@ with draft_tab:
     if st.button("Draft & preview"):
         st.session_state["comm_draft"] = (
             f"Hi Priya,\n\nThanks for chasing the SS27 jersey pack.\n\n"
-            f"{notes.strip()}\n\nI'll insert this into Gmail in the real extension — "
-            f"this hub only previews.\n\nBest,\nIshak"
+            f"{notes.strip()}\n\nThis is a preview of the draft.\n\nBest,\nIshak"
         )
     if st.session_state.get("comm_draft"):
         st.text_area("Preview (not sent)", st.session_state["comm_draft"], height=180)
