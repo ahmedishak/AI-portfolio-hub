@@ -1,6 +1,9 @@
+Replace everything in `Home.py` with this. The first line must be `import streamlit as st`.
+
+```python
 import streamlit as st
 
-st.set_page_config(page_title="Ishak — apps", layout="wide")
+st.set_page_config(page_title="Ishak Ahmed", layout="wide")
 
 hyphen = st.Page("pages/1_Hyphen_Matcher.py", title="Hyphen Matcher")
 lux = st.Page("pages/2_LuxStock_AI.py", title="LuxStock AI")
@@ -9,13 +12,10 @@ bot = st.Page("pages/4_Bot.py", title="AI Booking Agent")
 
 
 def home():
-    st.title("Apps")
-    st.write(
-        "Hyphen and LuxStock open in their own apps. "
-        "Comm-Pilot opens a walkthrough here — the real product is a Chrome side panel."
-    )
+    st.title("Ishak Ahmed")
+    st.write("I build AI tools that replace manual work.")
 
-    c1, c2, c3 = st.columns(3)
+    c1, c2, c3, c4 = st.columns(4)
 
     with c1:
         st.subheader("Hyphen Matcher")
@@ -40,10 +40,16 @@ def home():
         if st.button("Open Comm-Pilot", type="primary"):
             st.switch_page(comm)
 
+    with c4:
+        st.subheader("AI Booking Agent")
+        st.write("Copilot Studio agent for booking requests.")
+        if st.button("Open AI Booking Agent", key="bot_open"):
+            st.switch_page(bot)
+
 
 pg = st.navigation(
     [
-        st.Page(home, title="Apps", default=True),
+        st.Page(home, title="Home", default=True),
         hyphen,
         lux,
         comm,
@@ -51,3 +57,4 @@ pg = st.navigation(
     ]
 )
 pg.run()
+```
