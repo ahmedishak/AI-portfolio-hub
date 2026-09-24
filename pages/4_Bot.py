@@ -17,6 +17,7 @@ with col1:
 
 with col2:
     st.subheader("System Architecture")
+    st.image("pages/architecture.png")
     
     st.markdown("""
     **Business Impact:**
