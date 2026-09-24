@@ -1,6 +1,3 @@
-Replace everything in `Home.py` with this. The first line must be `import streamlit as st`.
-
-```python
 import streamlit as st
 
 st.set_page_config(page_title="Ishak Ahmed", layout="wide")
@@ -57,4 +54,3 @@ pg = st.navigation(
     ]
 )
 pg.run()
-```
