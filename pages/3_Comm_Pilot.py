@@ -2,16 +2,14 @@ from pathlib import Path
 
 import streamlit as st
 
-st.set_page_config(page_title="Comm-Pilot", layout="wide")
 st.title("Comm-Pilot")
-st.caption(
-    "This page is the demo URL. The shipping product is a Chrome side panel on Gmail — it has no website."
+st.write(
+    "A follow-up copilot for Gmail. It reads the open thread, drafts a reply, finds related threads, and lists unanswered asks."
 )
-
-st.info(
-    "Real app: chrome://extensions → Developer mode → Load unpacked → ~/comm-pilot-extension. "
-    "Nothing below sends mail."
+st.write(
+    "The shipping product is a Chrome side panel on Gmail. This page is a walkthrough with sample threads, so you can click through the same steps."
 )
+st.write("I built the side panel. Previewing a draft here leaves the mailbox untouched.")
 
 draft_tab, search_tab, chase_tab, stats_tab = st.tabs(
     ["Draft", "Search", "Chase", "Stats"]
@@ -41,7 +39,7 @@ with draft_tab:
         )
     if st.session_state.get("comm_draft"):
         st.text_area("Preview (not sent)", st.session_state["comm_draft"], height=180)
-        st.success("In Chrome, Insert puts this in the Gmail compose box.")
+        st.success("In the Chrome side panel, Insert places this in the Gmail compose box. This page only shows the preview.")
 
 with search_tab:
     st.write("Find threads, then answer from a few selected ones — not the whole inbox.")

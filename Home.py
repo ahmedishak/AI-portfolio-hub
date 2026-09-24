@@ -10,36 +10,33 @@ bot = st.Page("pages/4_Bot.py", title="AI Booking Agent")
 
 def home():
     st.title("Ishak Ahmed")
-    st.write("I build AI tools that replace manual work.")
+    st.write("I build AI tools that take a manual task from request to a finished result.")
 
     c1, c2, c3, c4 = st.columns(4)
 
     with c1:
         st.subheader("Hyphen Matcher")
-        st.write("UK route recommendation (advisory): INTO, iO-Sphere, Foundation, or HOLD.")
-        st.link_button(
-            "Open Hyphen Matcher",
-            "https://hyphen-matcher-app-v2.vercel.app/sign-in?redirect_url=https%3A%2F%2Fhyphen-matcher-app-v2.vercel.app%2F",
-        )
+        st.write("Paste a candidate background. Get an advisory UK route: INTO, iO-Sphere, Foundation, or HOLD.")
+        st.link_button("Open Hyphen Matcher", "https://hyphen-matcher-app-v2.vercel.app/")
         if st.button("Details", key="hyphen_details"):
             st.switch_page(hyphen)
 
     with c2:
         st.subheader("LuxStock AI")
-        st.write("CSV → stockout risk → supplier draft → approve trail.")
+        st.write("Upload a week of sales. See which SKUs are at risk, then draft the supplier email.")
         st.link_button("Open LuxStock AI", "https://lux-stock-ai.vercel.app/")
         if st.button("Details", key="lux_details"):
             st.switch_page(lux)
 
     with c3:
         st.subheader("Comm-Pilot")
-        st.write("Gmail follow-up copilot. Chrome extension in real use; demo runs in this hub.")
+        st.write("A Gmail follow-up copilot. The live product is a Chrome side panel. This page is the walkthrough.")
         if st.button("Open Comm-Pilot", type="primary"):
             st.switch_page(comm)
 
     with c4:
         st.subheader("AI Booking Agent")
-        st.write("Copilot Studio agent for booking requests.")
+        st.write("Book an interpreter in chat. Copilot Studio saves the request and alerts the team.")
         if st.button("Open AI Booking Agent", key="bot_open"):
             st.switch_page(bot)
 

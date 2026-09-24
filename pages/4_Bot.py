@@ -1,38 +1,41 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# Expands the page to fit a dashboard layout
-st.set_page_config(layout="wide") 
+st.title("AI Booking Agent")
+st.write(
+    "An interpreter-booking agent. Someone types a request in plain language. Copilot Studio captures the language, date, and format, then saves an Interpreter Request in Dataverse."
+)
+st.write(
+    "When that row is created, Power Automate turns the raw record into a readable alert: it labels the language, formats the date, emails the team, and logs the request."
+)
+st.write("I built the Copilot Studio topics, the Dataverse table, and the Power Automate flow.")
 
-st.title("AI Booking Agent Architecture")
+st.subheader("Try this")
+st.markdown(
+    """
+Ask it to book an interpreter. For example: Polish, face to face, 26 September 2026.
 
-# Create two columns
-col1, col2 = st.columns([1.2, 1])
+You should see it confirm the language, the format, and the date. Behind the frame, that becomes a Dataverse row and a stakeholder email.
+"""
+)
 
-with col1:
-    st.subheader("Interactive Demo")
-    components.html("""
-        <iframe src="https://copilotstudio.microsoft.com/environments/7bd48057-e801-e228-8286-4504dd585749/bots/cr21c_linguistic_69MIK1/canvas?__version__=2&enableFileAttachment=false&cliAgent=true" frameborder="0" style="width: 100%; height: 500px;"></iframe>
-    """, height=500)
+components.html(
+    """
+    <iframe src="https://copilotstudio.microsoft.com/environments/7bd48057-e801-e228-8286-4504dd585749/bots/cr21c_linguistic_69MIK1/canvas?__version__=2&enableFileAttachment=false&cliAgent=true" frameborder="0" style="width: 100%; height: 640px;"></iframe>
+    """,
+    height=640,
+)
 
-with col2:
-    st.subheader("System Architecture")
-    st.image("pages/architecture.png")
-    
-    st.markdown("""
-    **Business Impact:**
-    An automated conversational pipeline that eliminates manual data entry, securely writes to a relational database, and triggers formatted stakeholder alerts.
-    
-    **Tech Stack:**
-    * **Frontend UI:** Microsoft Copilot Studio
-    * **Database:** Dataverse
-    * **Event Trigger & Routing:** Power Automate
-    """)
-    
-    with st.expander("⚙️ View Backend Data Transformation"):
-        st.markdown("""
-        **Overcoming OData Limitations:**
-        Dataverse natively outputs raw internal IDs and unformatted server timestamps. To generate professional stakeholder alerts, I engineered custom string manipulation functions (`formatDateTime`) and queried OData metadata schemas directly via the backend:
-        
-        `body/cr21c_languagerequired@OData.Community.Display.V1.FormattedValue`
-        """)
+st.subheader("How it is wired")
+st.image("pages/architecture.png")
+
+with st.expander("How the alert gets a readable date and language"):
+    st.markdown(
+        """
+Dataverse stores internal ids and raw timestamps. The flow reads the formatted language label and formats the date before the email goes out:
+
+`body/cr21c_languagerequired@OData.Community.Display.V1.FormattedValue`
+
+`formatDateTime(..., 'dd MMM yyyy')`
+"""
+    )
