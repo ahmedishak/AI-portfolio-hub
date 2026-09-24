@@ -30,7 +30,7 @@ def home():
     with c2:
         st.subheader("LuxStock AI")
         st.write("CSV → stockout risk → supplier draft → approve trail.")
-        st.link_button("Open LuxStock AI", "http://localhost:3004")
+        st.link_button("Open LuxStock AI", "https://lux-stock-ai.vercel.app/")
         if st.button("Details", key="lux_details"):
             st.switch_page(lux)
 
