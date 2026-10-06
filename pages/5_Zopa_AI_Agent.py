@@ -45,3 +45,9 @@ st.video(str(Path(__file__).resolve().parent.parent / "assets" / "zopa_ai_agent_
 st.caption(
     "33 seconds, no sound. Anonymised demo: balances and the reference number are sample data, not a customer account or the live production app."
 )
+
+st.subheader("How it is wired")
+st.write(
+    "A request goes from the Biscuit app to the Ask language layer, which works out what the customer wants. The agent plans the steps, asks for confirmation before any money moves, and calls the core banking APIs. Every action is logged for audit, and the analytics layer tracks containment, handoffs, and satisfaction."
+)
+st.image(str(Path(__file__).resolve().parent.parent / "assets" / "zopa_architecture.jpg"))
