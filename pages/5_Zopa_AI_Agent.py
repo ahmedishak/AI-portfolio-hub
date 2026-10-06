@@ -10,6 +10,8 @@ st.write(
     "Money only moves after the customer says yes. The assistant repeats the amount and both accounts, waits for confirmation, then makes the transfer and returns a reference number."
 )
 
+st.write("I built it for Zopa Bank using Cursor and Claude Code.")
+
 st.subheader("What the demo shows")
 st.markdown(
     """
