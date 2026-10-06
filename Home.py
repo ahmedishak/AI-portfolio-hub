@@ -6,6 +6,7 @@ hyphen = st.Page("pages/1_Hyphen_Matcher.py", title="Hyphen Matcher")
 lux = st.Page("pages/2_LuxStock_AI.py", title="LuxStock AI")
 comm = st.Page("pages/3_Comm_Pilot.py", title="Comm-Pilot")
 bot = st.Page("pages/4_Bot.py", title="AI Booking Agent")
+zopa = st.Page("pages/5_Zopa_AI_Agent.py", title="Zopa AI Agent")
 
 
 def home():
@@ -40,6 +41,14 @@ def home():
         if st.button("Open AI Booking Agent", key="bot_open"):
             st.switch_page(bot)
 
+    c5, _, _, _ = st.columns(4)
+
+    with c5:
+        st.subheader("Zopa AI Agent")
+        st.write("A short video of the agent running.")
+        if st.button("Watch the demo", key="zopa_open"):
+            st.switch_page(zopa)
+
 
 pg = st.navigation(
     [
@@ -48,6 +57,7 @@ pg = st.navigation(
         lux,
         comm,
         bot,
+        zopa,
     ]
 )
 pg.run()
